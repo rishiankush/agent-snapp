@@ -277,7 +277,7 @@ background:#f55d3b;
 .headerBannerText h2 {
     text-align: left;
     color: #fff;
-    font-size: 48px;
+    font-size: 30px;
 }
 
 #MainPage .headerBannerText h1 {
@@ -314,7 +314,7 @@ background:#f55d3b;
 .SliderNavigation {
     background: #fff;
     position: fixed;
-bottom: 50px;
+bottom: 30px;
 width: 80%;
 }
 
@@ -327,7 +327,7 @@ width: 80%;
 .SliderNavigation ul li {
     display:flex;
     width: 100%;
-    padding: 20px 0;
+    padding: 10px 0;
 }
 
 .SliderNavigation ul li:hover
