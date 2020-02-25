@@ -109,6 +109,10 @@ a
     color:#f55d3b !important;
 }
 
+.c-black {
+    color: #1c1c1c !important;
+}
+
 .brandname .logo {
     font-size: 26px;
     font-family: 'GeorgeRoundedSemibold';
@@ -580,12 +584,83 @@ input.form-control, select.form-control {
 
 
 .UploadUserAvtar.rounded-circle.mr-2 {
-    width: 68px;
+width: 68px;
 height: 68px;
-background-color:
-rgb(238, 238, 238);
+background-color:rgb(238, 238, 238);
 object-fit: cover;
 }
 
+.ModePage .userProfile {
+
+    height: 120px;
+    width: 120px;
+    overflow: hidden;
+    border: solid 10px #f55d3b;
+    border-radius: 100px;
+    margin: 0 auto;
+    object-fit: cover;
+    position: relative;
+    top: -55px;
+}
+
+.ModePage .userProfile img{
+    width: 170%;
+    border-radius: 100px;
+    
+}
+
+.ModePage .mode-container {
+    background: 
+    #fff;
+    width: 340px;
+    margin: 70px 0 50px 0;
+}
+
+.row.DashboardSettingOption {
+    position: relative;
+    top: -110px;
+    margin: 0 0 0 0;
+}
+
+.row.DashboardSettingOption .options {
+    width: 48px
+}
+
+.row.DashboardSettingOption .navigation.options {
+    float: left;
+}
+
+.row.DashboardSettingOption .setting{
+    float: right;
+}
+
+.row.DashboardSettingOption .options img {
+width: 100%;
+}
+
+.mode-container .mode .mode-title {
+    font-size: 50px;
+}
+
+.mode-container .f-sec-b {
+    font-family: 'GeorgeRoundedBold';
+}
+
+.WorkdMode.mode.text-center.mt-2 {
+    position: relative;
+    top: -80px;
+    padding: 0 30px;
+}
+
+.HireMode.mode.text-center.mt-4 {
+    position: relative;
+    top: -65px;
+    padding: 0 30px;
+}
+
+.WhatLooking.c-white.text-center {
+    padding: 35px 0 0;
+    font-size: 20px;
+}
 
 /* End login/Signup Page */

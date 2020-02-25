@@ -101,7 +101,7 @@ class SignpuStepone extends Component {
                   <input type="password" class="form-control input" placeholder="Password" name="password" />
                 </div>
               </div>
-              <button type="submit" class="bgc-main d-block w-100 py-2 border-0 mt-5 btn btn-secondary">Finish Sign Up</button>              </form>
+              <button type="submit" class="bgc-main d-block w-100 py-2 border-0 mt-5 btn btn-secondary" onClick={()=>this.props.history.push('/mode')}>Finish Sign Up</button>              </form>
             </div>
             <div className="col-md-3">
             </div>

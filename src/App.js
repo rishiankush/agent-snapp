@@ -10,6 +10,7 @@ import NewTalent from './components/newtalent';
 import login from './components/auth/login';
 import loginPassword from './components/auth/loginPassword';
 import Signup1 from './components/auth/Signup1';
+import mode from './components/dashboard/mode';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/login" component={login} />
         <Route path="/password" component={loginPassword} />
         <Route path="/signgupsetpone" component={Signup1} />
+        <Route path="/mode" component={mode} />
      </Switch>
     </div>
   </Router>
