@@ -1,0 +1,512 @@
+@font-face {
+	font-family: 'GeorgeRoundedSemiboldItalic';
+	src: url('../fonts/GeorgeRoundedSemiboldItalic.eot');
+    src: url('../fonts/GeorgeRoundedSemiboldItalic.woff') format('woff'), 
+    url('../fonts/GeorgeRoundedSemiboldItalic.ttf') format('truetype'), 
+    url('../fonts/GeorgeRoundedSemiboldItalic.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'GeorgeRoundedSemibold';
+	src: url('../fonts/GeorgeRoundedSemibold.eot');
+    src: url('../fonts/GeorgeRoundedSemibold.woff') format('woff'), 
+    url('../fonts/GeorgeRoundedSemibold.ttf') format('truetype'), 
+    url('../fonts/GeorgeRoundedSemibold.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'GeorgeRoundedRegular';
+	src: url('../fonts/GeorgeRoundedRegular.eot');
+    src: url('../fonts/GeorgeRoundedRegular.woff') format('woff'), 
+    url('../fonts/GeorgeRoundedRegular.ttf') format('truetype'), 
+    url('../fonts/GeorgeRoundedRegular.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'GeorgeRoundedLight';
+	src: url('../fonts/GeorgeRoundedLight.eot');
+    src: url('../fonts/GeorgeRoundedLight.woff') format('woff'), 
+    url('../fonts/GeorgeRoundedLight.ttf') format('truetype'), 
+    url('../fonts/GeorgeRoundedLight.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'GeorgeRoundedItalic';
+	src: url('../fonts/GeorgeRoundedItalic.eot');
+    src: url('../fonts/GeorgeRoundedItalic.woff') format('woff'), 
+    url('../fonts/GeorgeRoundedItalic.ttf') format('truetype'), 
+    url('../fonts/GeorgeRoundedItalic.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'GeorgeRoundedBoldItalic';
+	src: url('../fonts/GeorgeRoundedBoldItalic.eot');
+    src: url('../fonts/GeorgeRoundedBoldItalic.woff') format('woff'), 
+    url('../fonts/GeorgeRoundedBoldItalic.ttf') format('truetype'), 
+    url('../fonts/GeorgeRoundedBoldItalic.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'GeorgeRoundedBold';
+	src: url('../fonts/GeorgeRoundedBold.eot');
+    src: url('../fonts/GeorgeRoundedBold.woff') format('woff'), 
+    url('../fonts/GeorgeRoundedBold.ttf') format('truetype'), 
+    url('../fonts/GeorgeRoundedBold.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+a
+{
+    cursor: pointer;
+}
+
+
+.c-white {
+    color: 
+    #fff !important;
+}
+
+.c-main {
+    color:#f55d3b !important;
+}
+
+.brandname .logo {
+    font-size: 26px;
+}
+
+.IconsSheet
+{
+background-image: url('../images/allIcons.png');
+background-size: 100%;
+}
+
+
+.btn-primary
+{
+background: #f0603a;
+border: 0;
+border-radius: 0;
+}
+
+.btn-primary:hover{
+    background:rgba(240,96,58,.25);
+}
+
+
+.form-control:focus
+{
+    border: solid 1px #f0603a;
+    box-shadow:0 0 0 .2rem rgba(240,96,58,.25);
+}
+
+body
+{
+    font-family: 'GeorgeRoundedSemibold';
+}
+
+#header {
+    padding: 30px 0 0 0;
+}
+
+.headerBannerText h1 {
+    color: #fff;
+    text-align: left;
+    font-size: 60px;
+}
+
+.brandname {
+    text-align: left;
+    padding: 20px 0;
+}
+
+.navigation {
+float: right;
+}
+
+.navigation ul {
+    display: flex;
+}
+
+.navigation ul li {
+    display: flex;
+    font-size: 18px;
+    width: 100px;
+    padding: 10px 0;
+}
+
+.navigation ul li.active {
+    background: #f55d3b;
+}
+
+.navigation ul li:hover{
+    background: #f55d3b;
+}
+
+.navigation ul li.active a, .navigation ul li:hover a {
+    color: #fff;
+}
+
+.navigation ul li a {
+    width: 100%;
+    color: #fff;
+}
+
+#MainPage
+{
+    background: url('../images/landingPageBgmin.jpg') no-repeat;
+    min-height: 100vh;
+    height: 100vh;
+    background-size:100%;
+    position: relative;
+}
+
+#Disover 
+{
+    background: url('../images/disocverBannemin.jpg') no-repeat;
+    min-height: 100vh;
+    height: 100vh;
+    background-size:100%;
+    position: relative;
+}
+
+#explore 
+{
+    background: url('../images/exploreBannermin.jpg') no-repeat;
+    min-height: 100vh;
+    height: 100vh;
+    background-size:100%;
+    position: relative;
+}
+
+#experience
+{
+    background: url('../images/experiencePageBgmin.jpg') no-repeat;
+    min-height: 100vh;
+    height: 100vh;
+    background-size:100%;
+    position: relative;
+}
+
+#newTalent
+{
+    background: url('../images/newTalentPageBg-min.jpg') no-repeat;
+    min-height: 100vh;
+    height: 100vh;
+    background-size:100%;
+    position: relative;
+}
+
+.headerBannerText {
+    margin: 10px 0;
+    position: relative;
+    
+}
+
+.headerBannerText a {
+    float: left;
+}
+
+.headerBannerText .btn.btn-primary {
+    border: none;
+    border-radius: 0;
+    color: #fff;
+    font-size: 25px;
+    padding: 10px 30px;
+    margin: 14px 0;
+}
+
+.headerBannerText .btn.btn-primary:hover
+{
+opacity: 0.5;
+background:#f55d3b;
+}
+
+.headerBannerText p {
+    color: #fff;
+    text-align: left;
+    font-size: 20px;
+    margin: 15px 0 0 0;
+    font-family: 'GeorgeRoundedRegular';
+}
+
+.headerBannerText h2 {
+    text-align: left;
+    color: #fff;
+    font-size: 48px;
+}
+
+#MainPage .headerBannerText h1 {
+    font-size: 50px;
+}
+
+.ServicingAgent {
+    display: inline-block;
+    width: 100%;
+    margin: 15px 0 0 0;
+}
+
+.ServicingAgent .text {
+    float:left ;
+}
+
+.ServicingAgent .inputBoxSlider {
+    float: left;
+    width: 65%;
+    margin: 38px 0 0 15px;
+}
+
+.ServicingAgent .inputBoxSlider .form-control 
+{
+    background: 0;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-radius: 0;
+    font-size: 28px;
+}
+
+.SliderNavigation {
+    background: #fff;
+    position: fixed;
+bottom: 50px;
+width: 80%;
+}
+
+.SliderNavigation ul{
+    padding: 0;
+    display: flex;
+    margin: 0;
+}
+
+.SliderNavigation ul li {
+    display:flex;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.SliderNavigation ul li:hover
+{
+    background: #000;
+}
+
+
+.SliderNavigation ul li .earnIcons {
+    height: 50px;
+    width: 50px;
+    background-size: 550px;
+    display: inline-block;
+    background-position: -2px 0;
+}
+
+.SliderNavigation ul li:hover .earnIcons
+{
+    background-position: -56px 0;
+}
+
+.SliderNavigation ul li .discover
+{
+    height: 50px;
+    width: 50px;
+    background-size: 550px;
+    display: inline-block;
+    background-position: -114px 0;
+}
+
+.SliderNavigation ul li:hover .discover
+{
+    background-position: -168px 0;
+}
+
+
+.SliderNavigation ul li .explore 
+{
+    height: 50px;
+    width: 50px;
+    background-size: 550px;
+    display: inline-block;
+    background-position: -223px 0;
+}
+
+.SliderNavigation ul li:hover .explore 
+{
+    background-position: -276px 0;
+}
+
+.SliderNavigation ul li .experience  
+{
+    height: 50px;
+    width: 50px;
+    background-size: 550px;
+    display: inline-block;
+    background-position: -332px 0;
+}
+
+.SliderNavigation ul li:hover .experience 
+{
+    background-position: -388px 0;
+}
+
+.SliderNavigation ul li .new  
+{
+    height: 50px;
+    width: 50px;
+    background-size: 550px;
+    display: inline-block;
+    background-position: -443px 0;
+}
+
+.SliderNavigation ul li:hover .new 
+{
+    background-position: -498px 0;
+}
+
+
+
+.SliderNavigation ul li:hover a p
+{
+    color: #f55d3b;
+}
+
+.SliderNavigation ul li a{
+    width: 100%;
+}
+
+.SliderNavigation ul li a p {
+    color:#000;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+}
+
+
+
+/* Login Page */
+
+.loginPageLogo {
+    margin: 50px 0 0;
+}
+
+.row.loginArea {
+    margin: 50px 0 0;
+    width: 100%;
+}
+
+.row.loginArea h1 {
+    text-align: center;
+}
+
+.row.loginArea p {
+    font-size: 18px;
+    font-family: 'GeorgeRoundedLight';
+}
+
+.row.loginArea .btn-primary {
+ width: 70%;
+font-size: 20px;
+margin: 20px 0;
+}
+
+.loginPageLogo .forgotPassword.text-center a {
+    color: #ccc;
+}
+
+.loginPageLogo .logo-header a img {
+    width: 5%;
+    display: inline-block;
+}
+
+.loginPageLogo .logo-header.mx-auto {
+    font-size: 45px;
+}
+
+
+.sign-form .fb-login {
+    background-color: 
+    #4867aa;
+}
+
+.text-center.fb-login.f-main-b.btn.btn-secondary {
+    border-radius: 0;
+    width: 240px;
+    margin: 0 auto;
+    background-color: #4867aa;
+    font-size: 18px;
+    margin: 30px 0 0 0;
+}
+
+.row.loginArea .chooseOption 
+{
+    font-size: 40px;
+    line-height: 1.2;
+    margin: auto;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+}
+
+.sign-form .w-sec {
+    width: 240px;
+}
+
+.divider .line {
+    height: 1px;
+    flex: 1 1;
+    background-color: #e0e0e0;
+}
+
+.divider span {
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.row.loginArea .w-sec {
+    width: 240px;
+}
+
+.row.loginArea input:not([type="checkbox"]) {
+    min-height: 42px;
+    font-family: 'GeorgeRoundedLight';
+}
+
+input.form-control, select.form-control {
+    height: 46px !important;
+}
+
+.bgc-main {
+    background-color: 
+    #f55d3b;
+}
+
+
+.row.loginArea .w-third {
+    width: 180px;
+}
+
+#Login .btn {
+    font-size: 20px;
+}
+
+.c-gray {
+    color: #a1a1a1 !important;
+}
+
+.copyright.row {
+    font-family: 'GeorgeRoundedLight';
+    margin: 25px 0 0 0;
+}
+/* End login Page */
