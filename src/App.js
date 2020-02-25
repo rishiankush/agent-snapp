@@ -9,6 +9,7 @@ import experience from './components/experience';
 import NewTalent from './components/newtalent';
 import login from './components/auth/login';
 import loginPassword from './components/auth/loginPassword';
+import Signup1 from './components/auth/Signup1';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/newtalent" component={NewTalent} />
         <Route path="/login" component={login} />
         <Route path="/password" component={loginPassword} />
+        <Route path="/signgupsetpone" component={Signup1} />
      </Switch>
     </div>
   </Router>
