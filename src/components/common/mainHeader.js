@@ -25,7 +25,7 @@ class MainHeader extends Component {
                     <div className="navigation">
                         <ul>
                             <li><a onClick={()=>this.props.history.push('/login')}> Log in </a> </li>
-                            <li className="active"> <a onClick={()=>this.props.history.push('/')}> Sign up </a> </li>
+                            <li className="active"> <a onClick={()=>this.props.history.push('/signgupsetpone')}> Sign up </a> </li>
                         </ul>
                     </div>
                 </div>

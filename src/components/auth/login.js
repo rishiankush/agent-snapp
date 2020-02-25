@@ -45,7 +45,7 @@ class Login extends Component {
 
                   </div>
                   <button type="submit" class="btn text-center d-block rounded-0 w-third bgc-main border-0 mx-auto my-2 c-white py-2 btn btn-secondary" onClick={()=>this.props.history.push('/mode')}>Let's start</button>
-                  <a class="btn text-center d-block rounded-0 w-third bgc-main border-0 mx-auto c-white py-2 f-main-b" href="/signgupsetpone"><span>Sign Up</span></a>
+                  <a class="btn text-center d-block rounded-0 w-third bgc-main border-0 mx-auto c-white py-2 f-main-b" onClick={()=>this.props.history.push('/signgupsetpone')}><span>Sign Up</span></a>
                 </form>
               </div>
               <div className="col-md-4">

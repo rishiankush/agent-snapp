@@ -605,8 +605,6 @@ object-fit: cover;
 
 .ModePage .userProfile img{
     width: 170%;
-    border-radius: 100px;
-    
 }
 
 .ModePage .mode-container {
