@@ -11,6 +11,10 @@ import login from './components/auth/login';
 import loginPassword from './components/auth/loginPassword';
 import Signup1 from './components/auth/Signup1';
 import mode from './components/dashboard/mode';
+import Counter from './components/count';
+import setting from './components/dashboard/Worker/setting';
+import worker from './components/dashboard/Worker/worker';
+import singleJPost from './components/dashboard/Worker/singleJPost';
 
 function App() {
   return (
@@ -26,6 +30,10 @@ function App() {
         <Route path="/password" component={loginPassword} />
         <Route path="/signgupsetpone" component={Signup1} />
         <Route path="/mode" component={mode} />
+        <Route path="/count" component={Counter} />
+        <Route path="/worker" component={worker} />
+        <Route path="/setting" component={setting} />
+        <Route path="/singleJPost" component={singleJPost} />
      </Switch>
     </div>
   </Router>

@@ -662,3 +662,398 @@ width: 100%;
 }
 
 /* End login/Signup Page */
+
+/* worker dashboard css start */
+
+.sub-page.with-header .header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    border-bottom: 1px solid 
+    #d6d6d6;
+    padding: 0 10px;
+    text-align: center;
+}
+
+.workersetting.header.with-back .pageHeader {
+    border-bottom: solid 1px 
+    #ccc;
+}
+
+.workersetting.header.with-back .pageHeader .back {
+    float: left;
+    width: 5%;
+    padding: 10px;
+}
+
+.workersetting.header.with-back .pageHeader .back img
+{
+    width: 100%;
+}
+
+
+.workersetting.header.with-back .page-title {
+    font-size: 20px;
+    font-weight: 600;
+    width: 95%;
+    float: left;
+    padding: 12px 0;
+}
+
+
+.wrapper{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	width: 400px;
+	margin: 50vh auto 0;
+	-ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+	-webkit-transform: translateY(-50%);
+	        transform: translateY(-50%);
+}
+
+.switch_box{
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	max-width: 200px;
+	min-width: 200px;
+	height: 200px;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-flex: 1;
+	    -ms-flex: 1;
+	        flex: 1;
+}
+
+/* Switch 1 Specific Styles Start */
+
+.box_1{
+	background: #eee;
+}
+
+input[type="checkbox"].switch_1{
+	font-size: 16px;
+	-webkit-appearance: none;
+	   -moz-appearance: none;
+	        appearance: none;
+	width: 3.5em;
+	height: 1.5em;
+	background: #ddd;
+	border-radius: 3em;
+	position: relative;
+	cursor: pointer;
+	outline: none;
+	-webkit-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+  }
+  
+  input[type="checkbox"].switch_1:checked{
+	background: #f55c3b;
+  }
+  
+  input[type="checkbox"].switch_1:after{
+	position: absolute;
+	content: "";
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 50%;
+	background: #fff;
+	-webkit-box-shadow: 0 0 .25em rgba(0,0,0,.3);
+	        box-shadow: 0 0 .25em rgba(0,0,0,.3);
+	-webkit-transform: scale(.7);
+	        transform: scale(.7);
+	left: 0;
+	-webkit-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+  }
+  
+  input[type="checkbox"].switch_1:checked:after{
+	left: calc(100% - 1.5em);
+  }
+
+  /* Switch 1 Specific Style End */
+  
+
+  .workersetting.header.with-back {
+    float: left;
+    width: 92%;
+}
+
+  .serviceagentsettings.col-md-6 {
+    margin: 30px 0;
+}
+
+  .workersetting.header.with-back .serviceagentsettings .showprofilehiring {
+    border: solid 1px #ccc;
+    border-radius: 100px;
+    padding: 10px 15px;
+}
+
+.workersetting.header.with-back .serviceagentsettings .card-body .showprofilehiring {
+    margin: 0 0 10px 0;
+    padding: 5px 10px;
+}
+
+.workersetting.header.with-back .serviceagentsettings .accordion > .card {
+    overflow: hidden;
+    border: none;
+}
+
+.workersetting.header.with-back .serviceagentsettings .accordion > .card > .card-header
+{
+    border: none;
+    text-align: left;
+    background-size:5% ;
+background-color: #fff;
+position: relative;
+}
+
+.panel-header {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.panel-desc {
+    color: 
+    #a1a1a1;
+    font-size: 14px;
+    text-align: left;
+}
+
+.closearrow {
+    width: 1.25rem;
+    height: 1.25rem;
+    display: inline-block;
+    position: relative;
+    margin: 0 1rem;
+    position: absolute;
+    right: 0;
+}
+
+
+.closearrow span:first-of-type {
+    left: 0;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.closearrow span {
+    top: 0.5rem;
+    position: absolute;
+    width: 0.75rem;
+    height: 0.1rem;
+    background-color: 
+    #000;
+    display: inline-block;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+.closearrow span:last-of-type {
+    right: 0;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.closearrow span {
+    top: 0.5rem;
+    position: absolute;
+    width: 0.75rem;
+    height: 0.1rem;
+    background-color: #000;
+    display: inline-block;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+
+.closearrow.active span:first-of-type {
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.closearrow.active span:last-of-type {
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.sideBar {
+    width: 8%;
+    float: left;
+    border-left: solid 1px#ccc;
+    height: 768px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.user-menu.row {
+border-radius: 120px;
+overflow: hidden;
+height: 65px;
+width: 65px;
+margin: 0 auto;
+}
+
+.jobInQues.row {
+    width: 65%;
+    margin: 30px auto;
+}
+
+.calendar-wrapper.row {
+    width: 65%;
+    margin: 30px auto;
+}
+
+.conversations {
+    margin: 0;
+    padding: 0;
+}
+
+.conversations .conversationsList ul
+{
+margin: 0;
+padding: 0;
+}
+
+.conversations .conversationsList ul li
+{
+    height: 60px;
+    width: 60px;
+    border-radius: 120px;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.conversations .conversationsList ul li a {
+    display: inline-block;
+}
+
+
+.conversations .conversationsList ul li img
+{
+    width: 100%;
+}
+
+.job-list .job-item a{
+color: #000;
+}
+
+.job-thumbnail img{
+    width: 100%;
+}
+
+.job-item .job-info {
+    padding: 20px 5px;
+    text-align: left;
+}
+
+.job-item .type-date {
+    font-size: 12px;
+}
+
+.job-item .job-title {
+    font-size: 18px;
+    font-weight: 600;
+    height: 24px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 4px;
+    color: #000;
+    
+}
+
+.job-item .job-address {
+    font-size: 14px;
+    font-weight: 600;
+    color: #000;
+}
+
+.job-item .job-price {
+    margin-top: 6px;
+    margin-bottom: 4px;
+    color: #000;
+}
+
+.job-item .job-owner {
+    font-weight: 400;
+    color: #888;
+    font-size: 12px;
+    color: #000;
+}
+
+.job-detail {
+    text-align: left;
+    margin: 25px 0 0 0;
+}
+
+.job-page .type-date {
+    color: 
+    #949494;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.job-page .title {
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 1.2;
+    font-family: 'GeorgeRoundedSemibold';
+}
+
+.job-page .address {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.job-page .agent {
+    margin: 20px 0 25px;
+    display: flex;
+}
+
+.agent img {
+width: 15%;
+margin: 0 15px 0px 0;
+border-radius: 100px;
+height: 70px;
+width: 70px;
+}
+
+.job-page .agent .info .type {
+    font-size: 14px;
+    text-transform: capitalize;
+    font-family: 'GeorgeRoundedSemibold';
+}
+
+.job-page .agent .info .name {
+    font-size: 16px;
+    font-family: 'GeorgeRoundedSemibold';
+}
+
+.description {
+    text-align: left;
+}
+
+.job-page .agent .info {
+    width: 40%;
+}
+
+.job-page .agent .info .type {
+    font-size: 14px;
+}
+
+.description label {
+    font-family: 'GeorgeRoundedSemibold';
+}
+
+.Jobpostcover img{
+    width: 100%;
+}
+
+/* end worker css */
