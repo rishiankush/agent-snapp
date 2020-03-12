@@ -1056,4 +1056,31 @@ width: 70px;
     width: 100%;
 }
 
+
+.intrestBox {
+    border: solid 1px #ccc;
+    padding: 15px;
+    margin: 20px 0;
+}
+
+.intrestBox .title_Text {
+    text-align: left;
+}
+
+.intrestBox .title_Text h2
+{
+    font-weight: bold;
+}
+
+.intrestBox .title_Text h2 span{
+font: 20px;
+}
+
+.intrestBox .title_Text .MLSalign {
+    color: #ccc;
+}
+
+
+
+
 /* end worker css */

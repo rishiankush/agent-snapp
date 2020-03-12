@@ -7,8 +7,7 @@ import Wsidebar from './common/Wsidebar';
 import dashboardSettingNavigation from '../../../assets/images/dashboardSettingNavigation.png'
 import UserProfile from '../../../assets/images/userProfile.png';
 import JobPostCover from '../../../assets/images/jobPostCover.png';
-
-
+import ExpressIntreset from './common/expressIntreset'
 
 class Worker extends Component {
   constructor(props) {
@@ -30,6 +29,9 @@ class Worker extends Component {
             <div className="row">
               <div className="col-md-12">
               <div className="Jobpostcover"> <img src={JobPostCover} /> </div>
+              </div>
+              </div>
+              <div className="row">
                 <div class="job-detail col-md-8">
                   <div class="type-date"><span class="type text-left"></span> <span class="date">Showing - 9/15/2019</span></div>
                   <div class="title">Home Showing</div>
@@ -44,21 +46,18 @@ class Worker extends Component {
                         <span class="c-main">Contact Agent</span></a>
                     </div>
                   </div>
-                </div>
-                <div class="description">
+                  <div class="description">
                   <label class="">Description</label>
                   <p>jskgjdfklgjdflkgjglkjsklsjkshjgsdhgkdshgksd</p>
                 </div>
-              </div>
-              
+                </div>
               <div className="col-md-4">
-
+                  <ExpressIntreset />
               </div>
-
+              </div>
             </div>
           </div>
-        </div>
-        <Wsidebar />
+          <Wsidebar />
       </div>
     );
 

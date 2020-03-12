@@ -3,12 +3,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { withRouter } from 'react-router-dom';
 import LoginLogo from '../../assets/images/magnetIcons.png';
 
-
 class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      isLoaded : false,
+      userData : '' ,
+      error : '' 
     };
+    console.log('userdataemprly ****** ',this.state.userData)
+  }
+  componentDidMount (){
+    console.log('testing local data *****', window.localStorage.getItem('SingupData'))
+    window.localStorage.getItem('SingupData')
   }
 
   render() {
@@ -64,8 +71,7 @@ class Login extends Component {
           </div>
         </div>
     );
-
-  }
+}
 }
 
 export default withRouter(Login);

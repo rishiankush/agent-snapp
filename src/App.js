@@ -15,6 +15,7 @@ import Counter from './components/count';
 import setting from './components/dashboard/Worker/setting';
 import worker from './components/dashboard/Worker/worker';
 import singleJPost from './components/dashboard/Worker/singleJPost';
+import workerprofile from './components/dashboard/Worker/workerprofile';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path="/worker" component={worker} />
         <Route path="/setting" component={setting} />
         <Route path="/singleJPost" component={singleJPost} />
+        <Route path="workerprofile" component={workerprofile} />
      </Switch>
     </div>
   </Router>
