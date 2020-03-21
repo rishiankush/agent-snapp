@@ -1,8 +1,11 @@
 import React from 'react';
 import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify';
+
 import AppIndex from './components/index';
 import './App.css';
-import './assets/css/style.css'
+import './assets/css/style.css';
+import 'react-toastify/dist/ReactToastify.min.css';
 import discover from './components/discover';
 import explore from './components/explore';
 import experience from './components/experience';
@@ -20,6 +23,7 @@ import workerprofile from './components/dashboard/Worker/workerprofile';
 function App() {
   return (
     <Router>
+      <ToastContainer />
       <div className='App'>
       <Switch>
         <Route path="/" exact component={AppIndex} />
