@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { withRouter } from 'react-router-dom';
+
+import { APIService, FBUtil, AppLocalStorage } from '../util';
 import LoginLogo from '../../assets/images/magnetIcons.png';
 import BackArrow from '../../assets/images/backArrow.png'
 import UploadAvtar from '../../assets/images/avtaar.svg'
-import { Col } from 'react-bootstrap';
-
 
 class SignpuStepone extends Component {
   constructor(props) {
@@ -20,7 +20,60 @@ class SignpuStepone extends Component {
       mls: '',
       profilePic: '',
       password: '',
+      facebookId: ''
     };
+  }
+
+  componentDidMount = async () => {
+    // check if Facebook Id is present and userId is not present
+    // Then setup user signup for facebook user
+    const facebookId = AppLocalStorage.getFacebookId();
+    const userId = AppLocalStorage.getUserId();
+    
+    const { showLoader, hideLoader } = global.props;
+    if (facebookId && !userId) {
+      try {
+        showLoader();
+        let userdata = {
+          facebookId,
+        };
+        
+        const name = AppLocalStorage.getUsername();
+        const email = AppLocalStorage.getUserEmail();
+        const userImage = AppLocalStorage.getUserImage();
+
+        if (name) {
+          userdata = {
+            ...userdata,
+            name,
+          }
+        }
+
+        if (email) {
+          userdata = {
+            ...userdata,
+            email,
+          }
+        }
+
+        if (userImage) {
+          userdata = {
+            ...userdata,
+            profilePic: userImage,
+          }
+        }
+        
+        this.setState((prevstate) => ({
+          ...prevstate,
+          ...userdata
+        }));
+
+      } catch (err) {
+        console.log(err);
+      } finally {
+        hideLoader();
+      }
+    }
   }
 
   onChange(e) {
@@ -126,6 +179,9 @@ class SignpuStepone extends Component {
  
 
   render() {
+
+    const { facebookId } = this.state;
+
     return (
       <div id="Singup">
         <div className="container">
@@ -144,7 +200,7 @@ class SignpuStepone extends Component {
             <div className="col-md-3">
             </div>
             <form onSubmit={(e)=>this.submitContactForm(e)}>
-            <div className="text-center col-md-6">
+            <div className="text-center">
 
               <div class="back-header justify-content-center"><div class="back">
 
@@ -202,17 +258,21 @@ class SignpuStepone extends Component {
                   </div>
                 </div>
 
-                <div class="mt-4 mb-2 row">
-                  <div class="text-left col">
-                    <span>Password</span>
-                  </div>
-                </div>
+                {
+                  !facebookId && <Fragment>
+                    <div class="mt-4 mb-2 row">
+                      <div class="text-left col">
+                        <span>Password</span>
+                      </div>
+                    </div>
 
-                <div class="my-2 row">
-                  <div class="col-sm-6 col-12 mt-2 col">
-                    <input type="password" onChange={(e)=>this.onChange(e)} class="form-control input" placeholder="Password" id="password"  name="password" required />
-                  </div>
-                </div>
+                    <div class="my-2 row">
+                      <div class="col-sm-6 col-12 mt-2 col">
+                        <input type="password" onChange={(e)=>this.onChange(e)} class="form-control input" placeholder="Password" id="password"  name="password" required />
+                      </div>
+                    </div>
+                  </Fragment>
+                }
                 <button type="submit" class="bgc-main d-block w-100 py-2 border-0 mt-5 btn btn-secondary" onClick={(e) => this.submitContactForm(e)}>Finish Sign Up</button>
             </div>
             </form>

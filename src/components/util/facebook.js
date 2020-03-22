@@ -1,3 +1,5 @@
+import '../../assets/js/facebooksdk';
+
 class FacebookUtil {
     
     fbIstance = undefined;
@@ -30,13 +32,14 @@ class FacebookUtil {
     });
 
     getUserData = () => new Promise((resolve, reject) => {
-        this.fbIstance.api('/me', {fields: "id,name,picture, email"}, function({
+        this.fbIstance.api('/me', {fields: "id,name,picture.type(large),email"}, function({
             error,
             name,
             email,
             picture
         }) {
             if (error) {
+                console.log(error);
                 reject(new Error('Error while fetching user data'))
             } else {
                 resolve({name, email, picture});

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { withRouter } from 'react-router-dom';
 
-import { FBUtil, Toaster } from '../util';
+import { FBUtil, Toaster, AppLocalStorage, APIService } from '../util';
 
 import LoginLogo from '../../assets/images/magnetIcons.png';
 
@@ -14,23 +14,58 @@ class Login extends Component {
       userData : '' ,
       error : '' 
     };
-    console.log('userdataemprly ****** ',this.state.userData)
-  }
-  componentDidMount (){
-    console.log('testing local data *****', window.localStorage.getItem('SingupData'))
-    window.localStorage.getItem('SingupData')
   }
 
   facebookLogin = async () => {
+    const { showLoader, hideLoader } = global.props;
+    let facebookId;
     try {
+      showLoader();
+      console.log('Starting facebook login ');
       const fbData = await FBUtil.login();
       const { userID } = fbData;
-      const userData = await FBUtil.getUserData();
-      const { name, email, picture } = userData;
-      console.log({name, email, picture, userID});
+      // Set facebook id for user in local storage
+      AppLocalStorage.setFacebookId(facebookId);
+      
+      const result = await APIService.facebookLogin({
+        facebookId: userID
+      });
+
     } catch (err) {
-      const errMessage = err.Message || 'Error while trying to login';
-      Toaster.error(errMessage);
+      console.log({...err});
+      // Error while loggin in using facebook
+      if (err && err.response && err.response.status === 409) {
+        // Get user facebook data
+        try {
+          const result = await FBUtil.getUserData();
+          const { name, email, picture } = result;
+
+          // Set User name in local storage
+          if (name) {
+            AppLocalStorage.setUsername(name);
+          }
+          
+          // Set User email in local storage
+          if (email) {
+            AppLocalStorage.setUserEmail(email);
+          }
+          
+          // Set User image in local storage
+          if (picture && picture.data && picture.data.url) {
+            AppLocalStorage.setUserImage(picture.data.url);
+          }
+
+          // Move to sign up screen
+          this.props.history.push('/signupsetpone');
+        } catch (err) {
+          throw err;
+        }
+      } else {
+        const errMessage = err.Message || 'Error while trying to login';
+        Toaster.error(errMessage);
+      }
+    } finally {
+      hideLoader();
     }
   }
 

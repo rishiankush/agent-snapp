@@ -1,5 +1,7 @@
 import { toast } from 'react-toastify';
 
+import 'react-toastify/dist/ReactToastify.min.css';
+
 class Toaster {
     
     constructor(position = toast.POSITION.BOTTOM_RIGHT, autoCloseMs = 7000) {
