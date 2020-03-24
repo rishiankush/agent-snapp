@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { withRouter } from 'react-router-dom';
+
+import { FBUtil, Toaster, AppLocalStorage, APIService } from '../util';
+
 import LoginLogo from '../../assets/images/magnetIcons.png';
 
 class Login extends Component {
@@ -11,11 +14,60 @@ class Login extends Component {
       userData : '' ,
       error : '' 
     };
-    console.log('userdataemprly ****** ',this.state.userData)
   }
-  componentDidMount (){
-    console.log('testing local data *****', window.localStorage.getItem('SingupData'))
-    window.localStorage.getItem('SingupData')
+
+  facebookLogin = async () => {
+    const { showLoader, hideLoader } = global.props;
+    let facebookId;
+    try {
+      showLoader();
+      const fbData = await FBUtil.login();
+      const { userID } = fbData;
+      facebookId = userID;
+      // Set facebook id for user in local storage
+      AppLocalStorage.setFacebookId(facebookId);
+      
+      const result = await APIService.facebookLogin({
+        facebookId: userID
+      });
+
+    } catch (err) {
+      // Error while loggin in using facebook
+      if (err && err.response && err.response.status === 409) {
+        // Get user facebook data
+        try {
+          const result = await FBUtil.getUserData();
+          console.log({result});
+          
+          const { name, email, picture } = result;
+
+          // Set User name in local storage
+          if (name) {
+            AppLocalStorage.setUsername(name);
+          }
+          
+          // Set User email in local storage
+          if (email) {
+            AppLocalStorage.setUserEmail(email);
+          }
+          
+          // Set User image in local storage
+          if (picture && picture.data && picture.data.url) {
+            AppLocalStorage.setUserImage(picture.data.url);
+          }
+
+          // Move to sign up screen
+          this.props.history.push('/signupsetpone');
+        } catch (err) {
+          throw err;
+        }
+      } else {
+        const errMessage = err.message || 'Error while trying to login';
+        Toaster.error(errMessage);
+      }
+    } finally {
+      hideLoader();
+    }
   }
 
   render() {
@@ -40,7 +92,10 @@ class Login extends Component {
               <div className="text-center col-md-4">
                 <h3 className="chooseOption"> Choose an option to get started </h3>
 
-                <button class="text-center fb-login f-main-b btn btn-secondary">Use Facebook</button>
+                <button
+                  class="text-center fb-login f-main-b btn btn-secondary"
+                  onClick={this.facebookLogin}
+                >Use Facebook</button>
 
                 <div class="divider w-sec mx-auto py-sm-4 py-2"><div class="line"></div><span>or</span><div class="line"></div></div>
 

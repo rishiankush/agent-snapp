@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { withRouter } from 'react-router-dom';
+
+import { APIService, AppLocalStorage, Toaster } from '../util';
 import LoginLogo from '../../assets/images/magnetIcons.png';
 import BackArrow from '../../assets/images/backArrow.png'
 import UploadAvtar from '../../assets/images/avtaar.svg'
-import { Col } from 'react-bootstrap';
-
 
 class SignpuStepone extends Component {
   constructor(props) {
@@ -20,7 +20,71 @@ class SignpuStepone extends Component {
       mls: '',
       profilePic: '',
       password: '',
+      facebookId: ''
     };
+  }
+
+  componentDidMount = async () => {
+    // check if Facebook Id is present and userId is not present
+    // Then setup user signup for facebook user
+    const facebookId = AppLocalStorage.getFacebookId();
+    const userId = AppLocalStorage.getUserId();
+    
+    const { showLoader, hideLoader } = global.props;
+    if (facebookId && !userId) {
+      try {
+        showLoader();
+        let userdata = {
+          facebookId,
+        };
+        
+        const name = AppLocalStorage.getUsername();
+        const email = AppLocalStorage.getUserEmail();
+        const userImage = AppLocalStorage.getUserImage();
+
+        if (name) {
+          userdata = {
+            ...userdata,
+            name,
+          }
+        }
+
+        if (email) {
+          userdata = {
+            ...userdata,
+            email,
+          }
+        }
+
+        if (userImage) {
+          userdata = {
+            ...userdata,
+            profilePic: userImage,
+          }
+        }
+        
+        this.setState((prevstate) => ({
+          ...prevstate,
+          ...userdata
+        }));
+
+      } catch (err) {
+        const errMessage = err.Message || 'Error while trying to login';
+        Toaster.error(errMessage);
+      } finally {
+        hideLoader();
+      }
+    }
+  }
+
+  componentWillUnmount = () => {
+
+    // Clear facebook data if not saved
+    const facebookId = AppLocalStorage.getFacebookId();
+    const userId = AppLocalStorage.getUserId();
+    if (facebookId && !userId) {
+      AppLocalStorage.removeAppData();
+    }
   }
 
   onChange(e) {
@@ -126,6 +190,14 @@ class SignpuStepone extends Component {
  
 
   render() {
+
+    const {
+      facebookId,
+      name,
+      email,
+      profilePic
+    } = this.state;
+
     return (
       <div id="Singup">
         <div className="container">
@@ -144,7 +216,7 @@ class SignpuStepone extends Component {
             <div className="col-md-3">
             </div>
             <form onSubmit={(e)=>this.submitContactForm(e)}>
-            <div className="text-center col-md-6">
+            <div className="text-center">
 
               <div class="back-header justify-content-center"><div class="back">
 
@@ -153,9 +225,23 @@ class SignpuStepone extends Component {
               <p className="aboutYourself text-left"> Please provide some information about yourself </p>
                 <div class="my-2 row">
                   <div class="col-sm-6 col-12 mt-2 col">
-                    <input type="text" id="name" name="name" onChange={(e)=>this.onChange(e)} class="form-control input" placeholder="Full Name" required /></div>
+                    <input
+                      type="text" 
+                      id="name" 
+                      name="name"
+                      value={name} 
+                      className="form-control input"
+                      onChange={(e)=>this.onChange(e)} 
+                      placeholder="Full Name"
+                      required 
+                    />
+                  </div>
                   <div class="col-sm-6 col-12 mt-2 col">
-                    <select name="agenttype" onChange={(e)=>this.onChange(e)} class="form-control input">
+                    <select
+                      className="form-control input"
+                      name="agenttype" 
+                      onChange={(e)=>this.onChange(e)}
+                    >
                       <option value="">Agent Type</option>
                       <option value="service">Servicing</option>
                       <option value="hire">Hiring</option>
@@ -164,7 +250,15 @@ class SignpuStepone extends Component {
                 </div>
                 <div class="my-2 row">
                   <div class="col">
-                    <input type="text" onChange={(e)=>this.onChange(e)} class="form-control input" placeholder="123 Broadway, Albany NY 12201" id="address" name="address" required />
+                    <input
+                      type="text"
+                      onChange={(e)=>this.onChange(e)}
+                      className="form-control input"
+                      placeholder="123 Broadway, Albany NY 12201"
+                      id="address"
+                      name="address"
+                      required
+                    />
                   </div>
                 </div>
 
@@ -176,9 +270,26 @@ class SignpuStepone extends Component {
 
                 <div class="my-2 row">
                   <div class="col-sm-6 col-12 mt-2 col">
-                    <input type="email" onChange={(e)=>this.onChange(e)} class="form-control input" placeholder="email" id="email" name="email"  required/>
+                    <input
+                      type="email"
+                      onChange={(e)=>this.onChange(e)}
+                      className="form-control input"
+                      placeholder="email"
+                      id="email"
+                      name="email"
+                      value={email}
+                      required
+                    />
                   </div><div class="col-sm-6 col-12 mt-2 col">
-                    <input type="tel" onChange={(e)=>this.onChange(e)} class="form-control input" placeholder="Phone Number" id="phone" name="phone" required />
+                    <input 
+                      type="tel" 
+                      onChange={(e)=>this.onChange(e)} 
+                      className="form-control input" 
+                      placeholder="Phone Number" 
+                      id="phone" 
+                      name="phone" 
+                      required 
+                    />
                   </div>
                 </div>
 
@@ -202,17 +313,21 @@ class SignpuStepone extends Component {
                   </div>
                 </div>
 
-                <div class="mt-4 mb-2 row">
-                  <div class="text-left col">
-                    <span>Password</span>
-                  </div>
-                </div>
+                {
+                  !facebookId && <Fragment>
+                    <div class="mt-4 mb-2 row">
+                      <div class="text-left col">
+                        <span>Password</span>
+                      </div>
+                    </div>
 
-                <div class="my-2 row">
-                  <div class="col-sm-6 col-12 mt-2 col">
-                    <input type="password" onChange={(e)=>this.onChange(e)} class="form-control input" placeholder="Password" id="password"  name="password" required />
-                  </div>
-                </div>
+                    <div class="my-2 row">
+                      <div class="col-sm-6 col-12 mt-2 col">
+                        <input type="password" onChange={(e)=>this.onChange(e)} class="form-control input" placeholder="Password" id="password"  name="password" required />
+                      </div>
+                    </div>
+                  </Fragment>
+                }
                 <button type="submit" class="bgc-main d-block w-100 py-2 border-0 mt-5 btn btn-secondary" onClick={(e) => this.submitContactForm(e)}>Finish Sign Up</button>
             </div>
             </form>
