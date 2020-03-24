@@ -1,38 +1,47 @@
 import '../../assets/js/facebooksdk';
+const { FB } = window;
 
 class FacebookUtil {
-    
-    fbIstance = undefined;
 
     constructor(appId, appVersion) {
-        const { FB } = window;
         if (!FB) {
             throw new Error('Facebook not initialized');
         }
 
-        this.fbIstance = FB;
         // Initializing facebook API with APP ID
-        this.fbIstance.init({
+        FB.init({
             appId: appId,
-            autoLogAppEvents: true,
+            status: true,
+            cookie: true,
             xfbml: true,
             version: appVersion
         });
+
+        FB.getLoginStatus(function(response){
+            console.log({response});
+        });
+
     }
 
     login = () => new Promise((resolve, reject) => {
-        this.fbIstance.login(response => {
+        console.log('Logging in');
+        FB.login(response => {
+            console.log({response});
+            
             const {authResponse} = response;            
             if (!authResponse) {
                 reject(new Error('Error on facebook login'));
             }else {
                 resolve(authResponse);
             }
-        }, {scope: 'public_profile,email'});
+        }, {
+            scope: 'public_profile,email',
+            auth_type: 'rerequest'
+        });
     });
 
     getUserData = () => new Promise((resolve, reject) => {
-        this.fbIstance.api('/me', {fields: "id,name,picture.type(large),email"}, function({
+        FB.api('/me', {fields: "id,name,picture.type(large),email, user_mobile_phone"}, function({
             error,
             name,
             email,
@@ -48,6 +57,6 @@ class FacebookUtil {
     });
 }
 
-const FBUtil = new FacebookUtil('1624742564354986', 'v6.0');
+const FBUtil = new FacebookUtil(1624742564354986, 'v6.0');
 
 export default FBUtil;

@@ -72,7 +72,7 @@ class AppLocalStorage {
             throw new Error(`Key name not passed to save value for`);
         }
         const appData = this.getAppData();
-        const value = appData.hasOwnProperty(itemKey) ? appData[itemKey]: null;
+        const value = appData && appData.hasOwnProperty(itemKey) ? appData[itemKey]: null;
         return value
     }    
 

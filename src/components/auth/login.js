@@ -21,9 +21,9 @@ class Login extends Component {
     let facebookId;
     try {
       showLoader();
-      console.log('Starting facebook login ');
       const fbData = await FBUtil.login();
       const { userID } = fbData;
+      facebookId = userID;
       // Set facebook id for user in local storage
       AppLocalStorage.setFacebookId(facebookId);
       
@@ -32,12 +32,13 @@ class Login extends Component {
       });
 
     } catch (err) {
-      console.log({...err});
       // Error while loggin in using facebook
       if (err && err.response && err.response.status === 409) {
         // Get user facebook data
         try {
           const result = await FBUtil.getUserData();
+          console.log({result});
+          
           const { name, email, picture } = result;
 
           // Set User name in local storage
@@ -61,7 +62,7 @@ class Login extends Component {
           throw err;
         }
       } else {
-        const errMessage = err.Message || 'Error while trying to login';
+        const errMessage = err.message || 'Error while trying to login';
         Toaster.error(errMessage);
       }
     } finally {
